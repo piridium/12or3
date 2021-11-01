@@ -1,0 +1,105 @@
+// out: ../css/style.css, compress: true, sourceMap: true
+
+@gutter: 2rem;
+@color-accent: fade(black, 10%);
+@color1: #fccec6;
+@color2: #c2defa;
+@color3: #b3f7ad;
+@color-font: black;
+@color-font-light: #999;
+
+
+*{
+  font-family: Jost, Roboto, sans-serif;
+}
+
+body{
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  position: relative;
+}
+
+#wrapper{
+  width:100vw;
+  min-height:100vh;
+  padding:3rem;
+  box-sizing: border-box;
+  font-size:3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#onetwothree{
+  flex: 1 1 auto;
+}
+
+#title{
+  padding: @gutter;
+  text-align: center;
+  font-size: 0.5em;
+}
+
+#question{
+  padding:@gutter;
+  text-align: center;
+  // background-color: @color-accent;
+  span{font-size: 0.5em;}
+}
+
+#options{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: @gutter;
+  row-gap: @gutter;
+  align-items: stretch;
+
+  .option{
+    flex: 1 1 10em;
+    padding:@gutter;
+    box-sizing: border-box;
+    &:nth-child(3n+0){background-color: @color1;}
+    &:nth-child(3n+1){background-color: @color2;}
+    &:nth-child(3n+2){background-color: @color3;}
+
+    text-align: center;
+    flex-wrap: wrap;
+    span{
+      display: block;
+      &.number{
+        font-size:1.5em;
+      }
+    }
+  }
+}
+
+#controls{
+  position: absolute;
+  top:@gutter;
+  right:@gutter;
+
+  display: flex;
+  column-gap: (@gutter/2);
+  color: @color-font-light;
+  .control{
+    cursor: pointer;
+    width:1.4em;
+    height:1.4em;
+    text-align: center;
+  }
+}
+
+#copy{
+  position: absolute;
+  bottom:0.4rem;
+  left:0;
+  right:0;
+  font-size: 0.8rem;
+  text-align: center;
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+}

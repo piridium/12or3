@@ -1,0 +1,23 @@
+# data
+# data/*
+#state/*
+#!state/default.*
+
+# composer managed
+#vendor/*
+
+# npm managed
+#node_modules/*
+
+# twig-cache
+#src/cache/*
+
+# passenger files
+#tmp/
+
+# macos files
+._*
+.DS_Store
+
+# other
+#drafts

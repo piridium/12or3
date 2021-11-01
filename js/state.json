@@ -1,0 +1,61 @@
+[
+  {
+    "question": "Welches ist das grösste Säugetier der Welt?",
+    "options": [{
+        "id": "0",
+        "correct": true,
+        "content": "der Blauwal"
+      },
+      {
+        "id": "1",
+        "correct": false,
+        "content": "der Elefant"
+      },
+      {
+        "id": "2",
+        "correct": false,
+        "content": "der Brachiosaurus"
+      }
+    ]
+  },
+  {
+    "question": "Welches ist der grösste Planet in unserem Sonnensystem?",
+    "options": [{
+        "id": "0",
+        "correct": true,
+        "content": "der Jupiter"
+      },
+      {
+        "id": "1",
+        "correct": false,
+        "content": "der Mars"
+      },
+      {
+        "id": "2",
+        "correct": false,
+        "content": "die Erde"
+      }
+
+    ]
+  },
+  {
+    "question": "Welches ist das schnellste Landtier der Welt?",
+    "options": [{
+        "id": "0",
+        "correct": true,
+        "content": "der Gepard"
+      },
+      {
+        "id": "1",
+        "correct": false,
+        "content": "die Gazelle"
+      },
+      {
+        "id": "2",
+        "correct": false,
+        "content": "der Osterhase"
+      }
+
+    ]
+  }
+]
