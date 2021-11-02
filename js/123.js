@@ -13,6 +13,7 @@
 // let data = state;
 // console.log(data);
 
+// testdata
 let data = {
   slides: [
     {
@@ -103,8 +104,13 @@ function next(){
 }
 
 function check(){
-
+  console.log("check() function not implemented yet.")
 }
+
+function edit(){
+  console.log("edit() function not implemented yet.")
+}
+
 
 // helpers
 function mod(val, m){
