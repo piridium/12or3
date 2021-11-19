@@ -16,8 +16,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- development version, includes helpful console warnings -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-      <!-- production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <!-- production version, optimized for size and speed -->
 
     </head>
     <body>
@@ -26,24 +26,24 @@
         <![endif]-->
       <div id="wrapper">
         <div id="onetwothree">
-          <div id="question"><span>Frage {{ current+1 }}</span><br/>{{slides[current].question}}</div>
-          <div id="options">
-            <div class="option" v-for="(option, index) in slides[current].options" :key="slides[current].options.content" :id="slides[current].options.id">
+          <div id="question"><span>Frage {{ data.slide.id+1 }}</span><br/>{{data.slide.question}}</div>
+          <div id="answers">
+            <div class="answer" v-for="(answer, index) in data.slide.answers" :key="answer.id" :id="answer.id" :class="solution ? answer.correct ? 'correct' : 'wrong' : '' " >
               <span class="number">{{index+1}}</span>
-              <span class="text">{{option.content}}</span>
+              <span class="text">{{answer.content}}</span>
             </div>
           </div>
         </div>
       </div>
       <div id="controls">
-        <div id="backward" class="control" onclick="prev()"><i class="fas fa-angle-left"></i></div>
-        <div id="forward" class="control" onclick="next()"><i class="fas fa-angle-right"></i></div>
-        <div id="check" class="control" onclick="check()"><i class="fas fa-check"></i></div>
-        <div id="edit" class="control" onclick="edit()"><i class="fas fa-cog"></i></div>
+        <div id="backward" class="control"><i class="fas fa-angle-left"></i></div>
+        <div id="forward" class="control"><i class="fas fa-angle-right"></i></div>
+        <div id="check" class="control"><i class="fas fa-check"></i></div>
+        <div id="edit" class="control"><i class="fas fa-cog"></i></div>
       </div>
       <div id="title">1, 2 oder 3</div>
       <div id="copy">© Patrick Itten | <a href="https://www.patrickitten.ch" target="_blank">patrickitten.ch</a></div>
 
-      <script src="js/123.js"></script><!-- Hier muss dann für ClassLoading (Module) noch ein type="module" hin. Achtung die Buttons sind dann nicht mehr funktionsfähig. -->
+      <script src="js/123.js" type="module"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@
 @color1: #fccec6;
 @color2: #c2defa;
 @color3: #b3f7ad;
+@color-shine: #ffbb00;
 @color-font: black;
 @color-font-light: #999;
 
@@ -46,7 +47,7 @@ body{
   span{font-size: 0.5em;}
 }
 
-#options{
+#answers{
   display: flex;
   @media screen and (max-width: 1024px){
     flex-wrap: wrap;
@@ -55,7 +56,7 @@ body{
   row-gap: @gutter;
   align-items: stretch;
 
-  .option{
+  .answer{
     flex: 0 1 100%;
     padding:@gutter;
     box-sizing: border-box;
@@ -63,12 +64,27 @@ body{
     &:nth-child(3n+1){background-color: @color2;}
     &:nth-child(3n+2){background-color: @color3;}
 
+    @transition-speed: 0.25s;
+    &.wrong{
+      transition: background-color ease-in @transition-speed, box-shadow ease-in @transition-speed;
+      background-color: #ddd;
+    }
+    &.correct{
+      transition: background-color ease-in @transition-speed, box-shadow ease-in @transition-speed;
+      box-shadow:0 0 0.2em darken(@color-shine,15%), 0 0 1.5em fade(@color-shine,100%);
+      background-color: lighten(@color-shine, 0%);
+    }
+
     text-align: center;
     flex-wrap: wrap;
     span{
       display: block;
       &.number{
         font-size:1.5em;
+      }
+      &.solution{
+        margin-top:0.75em;
+        font-size:0.3em;
       }
     }
   }
