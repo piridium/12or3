@@ -7,7 +7,7 @@
 #vendor/*
 
 # npm managed
-#node_modules/*
+node_modules/*
 
 # twig-cache
 #src/cache/*
