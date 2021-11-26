@@ -1,23 +1,27 @@
-# data
-# data/*
-#state/*
-#!state/default.*
+# npm
+node_modules
+/dist
 
-# composer managed
-#vendor/*
+# local env files
+.env.local
+.env.*.local
 
-# npm managed
-node_modules/*
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# twig-cache
-#src/cache/*
-
-# passenger files
-#tmp/
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # macos files
 ._*
 .DS_Store
 
-# other
-#drafts
