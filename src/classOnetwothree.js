@@ -9,6 +9,7 @@ export default class Onetwothree {
     if (this.config.shuffle) this.shuffleAnswers()
     this.currentIndex = 0
     this.currentSlide = { slide: this.getSlide(this.currentIndex) }
+    this.solution = false
   }
 
   /**
@@ -37,7 +38,7 @@ export default class Onetwothree {
    * increases the value of 'currentIndex'
    */
   previousSlide () {
-    this.vue.solution = false
+    this.solution = false
     if (this.config.shuffle) this.shuffleAnswers() // not strictly necessary
     this.currentIndex = this._mod(this.currentIndex - 1, this.data.slides.length)
     this.currentSlide.slide = this.getSlide(this.currentIndex)
@@ -47,7 +48,7 @@ export default class Onetwothree {
    * decreases the value of 'currentIndex'
    */
   nextSlide () {
-    this.vue.solution = false
+    this.solution = false
     if (this.config.shuffle) this.shuffleAnswers() // not strictly necessary
     this.currentIndex = this._mod(this.currentIndex + 1, this.data.slides.length)
     this.currentSlide.slide = this.getSlide(this.currentIndex)
@@ -57,7 +58,16 @@ export default class Onetwothree {
    * Toggles the solution boolean
    */
   check () {
-    this.vue.solution = !this.vue.solution
+    console.log('checked!')
+    this.solution = !this.solution
+  }
+
+  /**
+   * Checks if the given answer is correct
+   */
+  isCorrect (id) {
+    console.log(this.getSlide())
+    return this.getSlide().answers[id].correct
   }
 
   /**

@@ -1,18 +1,29 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <Controls />
-  <Quest title="123"/>
+  <Controls :controller="controller" />
+  <Quest title="123" :controller="controller"/>
 </template>
 
 <script>
+import { reactive } from 'vue'
 import Controls from './components/Controls.vue'
 import Quest from './components/Quest.vue'
+import Onetwothree from './classOnetwothree'
 
 export default {
   name: 'App',
   components: {
     Controls,
     Quest
+  },
+  setup () {
+    const controller = reactive(new Onetwothree({
+      shuffle: true
+    }))
+
+    return {
+      controller
+    }
   }
 }
 </script>

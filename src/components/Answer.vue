@@ -1,16 +1,32 @@
 <template>
-  <div class="answer">
+  <div class="answer" @click="controller.check()" :class="checked ? (correct ? 'correct' : 'incorrect') : ''">
     <p class="number">{{ nr }}</p>
     <p class="content">{{ content }}</p>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue'
+
 export default {
   name: 'Answer',
   props: {
     content: String,
-    nr: Number
+    nr: Number,
+    controller: Object
+  },
+  setup (props) {
+    const checked = computed(function () {
+      return props.controller.solution
+    })
+    const correct = computed(function () {
+      return props.controller.isCorrect(props.nr - 1)
+    })
+
+    return {
+      checked,
+      correct
+    }
   }
 }
 </script>
@@ -31,5 +47,11 @@ p{
   &.content{
     font-size: 2em;
   }
+}
+div.answer.correct {
+  background-color: green;
+}
+div.answer.incorrect {
+  background-color: red;
 }
 </style>

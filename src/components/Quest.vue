@@ -3,34 +3,37 @@
     <h1>{{ title }}</h1>
     <question :question="question" />
     <div id="answer-container">
-      <answer v-for="(answer, index) in answers" :key="answer.id" :nr="index+1" :content="answer.content" /> <!-- later pass data as object-->
+      <Answer v-for="(answer, index) in answers" :controller="controller" :key="answer.id" :nr="index+1" :content="answer.content" /> <!-- later pass data as object-->
     </div>
   </div>
 </template>
 
 <script>
-import Onetwothree from '../classOnetwothree.js'
+import { computed } from 'vue'
 import Question from './Question.vue'
 import Answer from './Answer.vue'
-
-const controller = new Onetwothree({
-  shuffle: true
-})
 
 export default {
   name: 'Quest',
   props: {
-    title: String
+    title: String,
+    controller: Object
   },
   components: {
     Question,
     Answer
   },
-  data () {
+  setup (props) {
+    // console.log(this.controller)
+    const question = computed(function () {
+      return props.controller.getSlide().question
+    })
+    const answers = computed(function () {
+      return props.controller.getSlide().answers
+    })
     return {
-      question: controller.getSlide().question,
-      answers: controller.getSlide().answers,
-      controller: { controller }
+      question,
+      answers
     }
   }
 }
