@@ -38,20 +38,24 @@ div.answer{
   background-color: rgb(182, 204, 230);
   margin: (@gutter/2);
   padding: @gutter;
+  text-align: center;
+  &:nth-child(1){ background-color: @color1; }
+  &:nth-child(2){ background-color: @color2; }
+  &:nth-child(3){ background-color: @color3; }
 }
 p{
   margin:0;
   &.number{
-    font-size: 3em;
+    font-size: 1.5em;
   }
   &.content{
-    font-size: 2em;
+    font-size: 1em;
   }
 }
 div.answer.correct {
-  background-color: green;
+  background-color: @color-true;
 }
 div.answer.incorrect {
-  background-color: red;
+  background-color: @color-false;
 }
 </style>

@@ -35,6 +35,24 @@ export default class Onetwothree {
   }
 
   /**
+   * @returns the question
+   */
+  getQuestion () {
+    return {
+      id: this.currentIndex,
+      nr: this.currentIndex + 1,
+      content: this.getSlide().question
+    }
+  }
+
+  /**
+   * @returns array of answers
+   */
+  getAnswers () {
+    return this.getSlide().answers
+  }
+
+  /**
    * increases the value of 'currentIndex'
    */
   previousSlide () {
@@ -58,7 +76,6 @@ export default class Onetwothree {
    * Toggles the solution boolean
    */
   check () {
-    console.log('checked!')
     this.solution = !this.solution
   }
 
@@ -66,7 +83,6 @@ export default class Onetwothree {
    * Checks if the given answer is correct
    */
   isCorrect (id) {
-    console.log(this.getSlide())
     return this.getSlide().answers[id].correct
   }
 

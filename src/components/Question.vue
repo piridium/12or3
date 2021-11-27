@@ -1,6 +1,7 @@
 <template>
-  <div class="question">
-    <h2 class="content">{{ question }}</h2>
+  <div id="question">
+    <p class="number">Frage {{ nr }}</p>
+    <h2 class="content">{{ content }}</h2>
   </div>
 </template>
 
@@ -9,25 +10,29 @@
 export default {
   name: 'Question',
   props: {
-    question: String,
+    content: String,
+    nr: Number,
     controller: {
       type: Object,
       default: () => ({})
     }
   }
-  // created: function () {
-  //   const controller = this.controller.controller
-  //   const question = controller.getSlide().question ?? ''
-  //   console.log(question)
-  // }
 }
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+#question{
+  text-align: center;
+}
+p{
+  font-size: 1em;
+  margin-bottom:0;
+}
 h2{
-  font-size:3em;
+  font-size:1.5em;
   font-weight: normal;
+  margin-top:0;
 }
 </style>

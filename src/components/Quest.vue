@@ -1,9 +1,9 @@
 <template>
-  <div class="quest">
-    <h1>{{ title }}</h1>
-    <question :question="question" />
+  <div id="quest">
+    <!-- <h1>{{ title }}</h1> -->
+    <question :nr="question.id+1" :content="question.content" />
     <div id="answer-container">
-      <Answer v-for="(answer, index) in answers" :controller="controller" :key="answer.id" :nr="index+1" :content="answer.content" /> <!-- later pass data as object-->
+      <answer v-for="(answer, index) in answers" :controller="controller" :key="answer.id" :nr="index+1" :content="answer.content" /> <!-- later pass data as object-->
     </div>
   </div>
 </template>
@@ -26,10 +26,10 @@ export default {
   setup (props) {
     // console.log(this.controller)
     const question = computed(function () {
-      return props.controller.getSlide().question
+      return props.controller.getQuestion()
     })
     const answers = computed(function () {
-      return props.controller.getSlide().answers
+      return props.controller.getAnswers()
     })
     return {
       question,
@@ -41,12 +41,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+#quest{
+  flex: 0 1 100em;
+}
 #answer-container{
   display: flex;
   @media screen and (max-width: 60em) {
     flex-wrap: wrap;
   }
-  padding: (@gutter/2);
+  margin: (-@gutter/2);
 }
 </style>
 r
