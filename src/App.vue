@@ -1,14 +1,20 @@
 <template>
   <!-- <img alt='Vue logo' src='./assets/logo.png'> -->
   <Title content='1, 2 oder 3' />
-  <Controls :controller='controller' />
+  <Controls :controller='controller' @openSettings="openSettings" />
   <Quest title='123' :controller='controller' />
   <button class="open-settings" @click='$refs.Settings.openSettings()'>Open settings</button>
-  <Settings ref='Settings' :controller='controller' />
+  <Settings
+      ref='Settings'
+      :controller='controller'
+      :show="showSettings"
+      @openSettings="openSettings"
+      @closeSettings="closeSettings"
+  />
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import Title from './components/Title.vue'
 import Controls from './components/Controls.vue'
 import Quest from './components/Quest.vue'
@@ -24,12 +30,25 @@ export default {
     Settings
   },
   setup () {
+    const showSettings = ref(false)
+
     const controller = reactive(new Onetwothree({
       shuffle: true
     }))
 
+    const openSettings = function () {
+      showSettings.value = true
+    }
+
+    const closeSettings = function () {
+      showSettings.value = false
+    }
+
     return {
-      controller
+      controller,
+      openSettings,
+      closeSettings,
+      showSettings
     }
   }
 }
