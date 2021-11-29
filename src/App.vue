@@ -3,7 +3,6 @@
   <Title content='1, 2 oder 3' />
   <Controls :controller='controller' @openSettings="openSettings" />
   <Quest title='123' :controller='controller' />
-  <button class="open-settings" @click='$refs.Settings.openSettings()'>Open settings</button>
 </template>
 
 <script>
