@@ -1,12 +1,12 @@
 <template>
   <transition name='fade'>
     <div class='settings' v-if='show'>
-      <div class='settings__backdrop' @click='closeSettings()'/>
+      <div class='settings__backdrop' @click="$emit('closeSettings')"/>
 
       <div class='settings__dialog'>
         <div class='settings__header'>
           <h1>Settings</h1>
-          <button type='button' class='settings__close' @click='closeSettings()'>
+          <button type='button' class='settings__close' @click="$emit('closeSettings')">
             <span></span>
             <span></span>
           </button>
@@ -17,8 +17,8 @@
         </div>
         <div class='settings__footer'>
           <div>
-            <button @click='$refs.Settings.closeSettings()'>Cancel</button>
-            <button @click='$refs.Settings.closeSettings()'>Save</button>
+            <button @click="$emit('closeSettings')">Cancel</button>
+            <button @click="$emit('closeSettings')">Save</button>
           </div>
         </div>
       </div>
@@ -29,21 +29,7 @@
 <script>
 export default {
   name: 'Settings',
-  data () {
-    return {
-      show: false
-    }
-  },
-  methods: {
-    closeSettings () {
-      this.show = false
-      document.querySelector('body').classList.remove('overflow-hidden')
-    },
-    openSettings () {
-      this.show = true
-      document.querySelector('body').classList.add('overflow-hidden')
-    }
-  }
+  props: ['show']
 }
 </script>
 
