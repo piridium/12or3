@@ -26,3 +26,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Copyright
 &copy; 2021, Patrick Itten, www.patrickitten.ch
+
+
+## Improvements
+Use vue-awesome:
+https://github.com/Justineo/vue-awesome
+https://github.com/JakeAtTurner/vue-awesome/tree/vue3.0-build

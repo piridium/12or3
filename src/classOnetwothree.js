@@ -35,7 +35,7 @@ export default class Onetwothree {
   }
 
   /**
-   * @returns the question
+   * @returns the question with its id and display number
    */
   getQuestion () {
     return {
@@ -155,6 +155,13 @@ export default class Onetwothree {
         }
       ]
     }
+  }
+
+  /**
+   * Open settings modal
+   */
+  openSettings () {
+    console.log('open settings modal')
   }
 
   /**

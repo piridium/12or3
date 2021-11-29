@@ -1,8 +1,10 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <Title content="1, 2 oder 3" />
-  <Controls :controller="controller" />
-  <Quest title="123" :controller="controller"/>
+  <!-- <img alt='Vue logo' src='./assets/logo.png'> -->
+  <Title content='1, 2 oder 3' />
+  <Controls :controller='controller' />
+  <Quest title='123' :controller='controller' />
+  <button class="open-settings" @click='$refs.Settings.openSettings()'>Open settings</button>
+  <Settings ref='Settings' :controller='controller' />
 </template>
 
 <script>
@@ -11,13 +13,15 @@ import Title from './components/Title.vue'
 import Controls from './components/Controls.vue'
 import Quest from './components/Quest.vue'
 import Onetwothree from './classOnetwothree'
+import Settings from './components/Settings'
 
 export default {
   name: 'App',
   components: {
     Title,
     Controls,
-    Quest
+    Quest,
+    Settings
   },
   setup () {
     const controller = reactive(new Onetwothree({
@@ -31,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang='less'>
 #app {
   font-family: Jost, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,5 +53,13 @@ export default {
 }
 h1, h2, h3, h4, h5, h6{
   font-weight:normal;
+}
+.overflow-hidden{
+  overflow: hidden;
+}
+button.open-settings{
+  position: absolute;
+  right: @gutter;
+  bottom: @gutter;
 }
 </style>
