@@ -1,9 +1,9 @@
 <template>
   <div id="controls">
-    <div class="control prev" @click="controller.previousSlide()">prev</div>
-    <div class="control next" @click="controller.nextSlide()">next</div>
-    <div class="control check" @click="controller.check()">check</div>
-    <div class="control settings" @click="alert('not implemented')">settings</div>
+    <div class="control prev" @click="controller.previousSlide()"><unicon name="angle-left" fill="grey" hover-fill="#48a53f"></unicon></div>
+    <div class="control next" @click="controller.nextSlide()"><unicon name="angle-right" fill="grey" hover-fill="#48a53f"></unicon></div>
+    <div class="control check" @click="controller.check()"><unicon name="check" fill="grey" hover-fill="#48a53f"></unicon></div>
+    <div class="control settings" @click="alert('not implemented')"><unicon name="cog" fill="grey" hover-fill="#48a53f"></unicon></div>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   right: @gutter;
 
   display: flex;
-  column-gap: (@gutter/2);
+  column-gap: (@gutter/4);
 
   .control{
     font-size: 1rem;
